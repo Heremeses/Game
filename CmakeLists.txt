@@ -1,0 +1,20 @@
+cmake_minimum_required(VERSION 3.23)
+set(CMAKE_CXX_STANDARD 20)
+
+project(Test)
+
+add_executable(EntryPoint)
+target_sources(EntryPoint PRIVATE EntryPoint.cpp "Ball.h" "Ball.cpp" "Player.cpp" "Player.h")
+
+add_library(SFML-2.6.1 INTERFACE)
+set(sfml_path "d:/libraries/SFML-2.6.1-windows-vc17-64-bit/SFML-2.6.1")
+target_include_directories(SFML-2.6.1 INTERFACE ${sfml_path}/include)
+target_link_directories(SFML-2.6.1 INTERFACE ${sfml_path}/lib)
+target_link_libraries(SFML-2.6.1 
+INTERFACE sfml-graphics-d
+INTERFACE sfml-window-d
+INTERFACE sfml-audio-d
+INTERFACE sfml-system-d
+INTERFACE sfml-network-d)
+
+target_link_libraries(EntryPoint PRIVATE SFML-2.6.1)
