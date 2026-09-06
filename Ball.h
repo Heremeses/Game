@@ -1,13 +1,15 @@
 #pragma once
 #include <utility>
 #include <SFML/Graphics.hpp>
+
 using namespace std;
+using namespace sf;
 
 const float G = 9.8;
 
 class Ball {
-    pair<float, float> speed;
-    pair<float, float> position;
+    Vector2<float> speed;
+    Vector2<float> position;
     float radius = 20;
     int mass = 20;
 public:
@@ -20,11 +22,11 @@ public:
         return { radius };
     }
 
-    pair<float, float> get_position() const{
-        return { position.first, position.second };
+    Vector2<float> get_position() const{
+        return { position.x, position.y };
     }
 
-    pair<float, float> get_speed() const{
-        return { speed.first, speed.second };
+    Vector2<float> get_speed() const{
+        return { speed.x, speed.y };
     }
 };
